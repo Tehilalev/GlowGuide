@@ -14,24 +14,35 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Register extends AppCompatActivity {
-    TextInputEditText first_name, last_name,email, phone, password;
+    TextInputEditText full_name, email, phone, password;
     Button button_reg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textView;
+
+    FirebaseFirestore fStore;
+    String userID;
+
     private boolean justRegistered = false;
 
     // Input validation methods
-    private boolean isValidName(String name) {
-        return !TextUtils.isEmpty(name) && name.matches("[a-zA-Z]+");
+
+    private boolean isValidFullName(String name) {
+        return !TextUtils.isEmpty(name) && name.matches("[a-zA-Z]+( [a-zA-Z]+)*");
     }
 
     private boolean isValidEmail(String email) {
@@ -69,8 +80,9 @@ public class Register extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
-        first_name = findViewById(R.id.firstname);
-        last_name = findViewById(R.id.lastname);
+        fStore = FirebaseFirestore.getInstance();
+
+        full_name = findViewById(R.id.fullname);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
         password = findViewById(R.id.password);
@@ -90,22 +102,15 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String firstname, lastname,_email,  _phone, _password;
-                firstname = String.valueOf(first_name.getText());
-                lastname =  String.valueOf(last_name.getText());
+                String fullname, _email,  _phone, _password;
+                fullname = String.valueOf(full_name.getText());
                 _phone =  String.valueOf(phone.getText());
                 _email =  String.valueOf(email.getText());
                 _password =  String.valueOf(password.getText());
 
                 // Input validation
-                if (!isValidName(firstname)) {
-                    Toast.makeText(Register.this, "First name should contain only letters", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
-                if (!isValidName(lastname)) {
-                    Toast.makeText(Register.this, "Last name should contain only letters", Toast.LENGTH_SHORT).show();
+                if (!isValidFullName(fullname)) {
+                    Toast.makeText(Register.this, "Full name should contain only letters", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
@@ -136,6 +141,20 @@ public class Register extends AppCompatActivity {
                                     justRegistered = true;
                                     Toast.makeText(Register.this, "Account created",
                                             Toast.LENGTH_SHORT).show();
+                                    userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+                                    DocumentReference documentReference = fStore.collection("users").document(userID);
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("fName", fullname);
+                                    user.put("email", _email);
+                                    user.put("phone", _phone);
+                                    user.put("password", _password);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Log.d(TAG, "onSuccess: user profile is created for " + userID);
+                                        }
+                                    }) ;
+
                                     Intent intent = new Intent(getApplicationContext(), Login.class);
                                     startActivity(intent);
                                     finish();
