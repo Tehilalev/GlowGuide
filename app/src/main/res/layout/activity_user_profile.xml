@@ -23,7 +23,8 @@
                 android:layout_height="150dp"
                 android:id="@+id/imageView_profile_dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/no_profile_pic"/>
+                android:background="@drawable/no_profile_pic"
+                android:contentDescription="@null"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +49,8 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/ic_profile"
-                android:background="@drawable/ic_profile"/>
+                android:background="@drawable/ic_profile"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,7 +76,8 @@
                 android:id="@+id/ic_username"
                 android:background="@drawable/ic_profile"
                 android:layout_below="@id/divider_full_name"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -102,7 +105,8 @@
                 android:id="@+id/ic_email"
                 android:background="@drawable/ic_email"
                 android:layout_below="@id/divider_username"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +134,8 @@
                 android:id="@+id/ic_mobile"
                 android:background="@drawable/ic_mobile"
                 android:layout_below="@id/divider_email"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -158,7 +163,8 @@
                 android:id="@+id/ic_pwd_bw"
                 android:background="@drawable/ic_pwd_bw"
                 android:layout_below="@id/divider_mobile"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
