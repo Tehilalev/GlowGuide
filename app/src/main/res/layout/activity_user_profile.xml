@@ -69,42 +69,13 @@
                 android:background="@android:color/darker_gray"
                 android:id="@+id/divider_full_name"/>
 
-            <!-- username -->
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/ic_username"
-                android:background="@drawable/ic_profile"
-                android:layout_below="@id/divider_full_name"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@null"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_show_username"
-                android:layout_alignStart="@+id/ic_profile"
-                android:hint="@string/loading"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/divider_full_name"
-                android:textSize="18sp"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/textView_show_username"
-                android:background="@android:color/darker_gray"
-                android:id="@+id/divider_username"/>
-
             <!-- email -->
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:id="@+id/ic_email"
                 android:background="@drawable/ic_email"
-                android:layout_below="@id/divider_username"
+                android:layout_below="@id/divider_full_name"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@null"/>
 
@@ -116,7 +87,7 @@
                 android:hint="@string/loading"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/divider_username"
+                android:layout_below="@id/divider_full_name"
                 android:textSize="18sp"/>
 
             <View
