@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -83,15 +84,16 @@
                 android:contentDescription="@null"/>
 
             <TextView
+                android:id="@+id/textView_show_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_show_email"
+                android:layout_below="@id/divider_full_name"
                 android:layout_alignStart="@+id/ic_email"
-                android:hint="@string/loading"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/divider_full_name"
-                android:textSize="18sp"/>
+                android:hint="@string/loading"
+                android:textColorLink="@color/white"
+                android:textSize="18sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -159,8 +161,19 @@
                 android:background="@android:color/darker_gray"
                 android:id="@+id/divider_password"/>
 
+            <Button
+                android:id="@+id/editProfile"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_password"
+                android:layout_marginTop="20dp"
+                android:text="@string/edit_profile"
+                android:backgroundTint="@color/purple_200"/>
+
             
         </RelativeLayout>
+
+
 
     </LinearLayout>
 

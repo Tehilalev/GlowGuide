@@ -1,9 +1,13 @@
 package com.example.glowguide;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,7 +21,7 @@ import java.util.Objects;
 public class UserProfileActivity extends AppCompatActivity {
 
     private TextView welcome, fullName, email, phone, password;
-    //private ImageView imageView;
+    private Button editProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,8 @@ public class UserProfileActivity extends AppCompatActivity {
         email = findViewById(R.id.textView_show_email);
         phone = findViewById(R.id.textView_show_mobile);
         password = findViewById(R.id.textView_show_password);
+
+        editProfile = findViewById(R.id.editProfile);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -57,6 +63,33 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), editProfile.class);
+                i.putExtra("fName", fullName.getText().toString());
+                i.putExtra("email", email.getText().toString());
+                i.putExtra("phone", phone.getText().toString());
+                i.putExtra("password", password.getText().toString());
+                startActivity(i);
+
+            }
+        });
+
+
+        // Handle back button press using OnBackPressedDispatcher
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish(); // Optional, if you want to close the UserProfileActivity
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
 
     }
+
 }

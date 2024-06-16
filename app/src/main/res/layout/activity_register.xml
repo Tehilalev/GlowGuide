@@ -8,6 +8,7 @@
     tools:context=".Register"
     android:orientation="vertical"
     android:padding="15dp"
+    android:layoutDirection="ltr"
     >
 
     <TextView
