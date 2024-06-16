@@ -21,13 +21,14 @@ import java.util.Objects;
 public class UserProfileActivity extends AppCompatActivity {
 
     private TextView welcome, fullName, email, phone, password;
-    private Button editProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user_profile);
+
+        Button editProfile;
 
         FirebaseAuth fAuth;
         FirebaseFirestore fStore;
@@ -63,17 +64,14 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), editProfile.class);
-                i.putExtra("fName", fullName.getText().toString());
-                i.putExtra("email", email.getText().toString());
-                i.putExtra("phone", phone.getText().toString());
-                i.putExtra("password", password.getText().toString());
-                startActivity(i);
+        editProfile.setOnClickListener(v -> {
+            Intent i = new Intent(v.getContext(), editProfile.class);
+            i.putExtra("fName", fullName.getText().toString());
+            i.putExtra("email", email.getText().toString());
+            i.putExtra("phone", phone.getText().toString());
+            i.putExtra("password", password.getText().toString());
+            startActivity(i);
 
-            }
         });
 
 
