@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -58,40 +57,37 @@ public class Login extends AppCompatActivity {
             finish();
         });
 
-        button_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
-                String _email, _password;
-                _email =  String.valueOf(email.getText());
-                _password =  String.valueOf(password.getText());
+        button_login.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
+            String _email, _password;
+            _email =  String.valueOf(email.getText());
+            _password =  String.valueOf(password.getText());
 
 
-                if(TextUtils.isEmpty(_email)){
-                    Toast.makeText(Login.this, "Enter Email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if(TextUtils.isEmpty(_password)){
-                    Toast.makeText(Login.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                mAuth.signInWithEmailAndPassword(_email, _password)
-                        .addOnCompleteListener(task -> {
-                            progressBar.setVisibility(View.GONE);
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(Login.this, "Authentication failed",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
+            if(TextUtils.isEmpty(_email)){
+                Toast.makeText(Login.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if(TextUtils.isEmpty(_password)){
+                Toast.makeText(Login.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mAuth.signInWithEmailAndPassword(_email, _password)
+                    .addOnCompleteListener(task -> {
+                        progressBar.setVisibility(View.GONE);
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(Login.this, "Authentication failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
         });
 
         forgotTextLink.setOnClickListener(v -> {
@@ -102,25 +98,12 @@ public class Login extends AppCompatActivity {
             passwordResetDialog.setMessage("Enter Your Email To Received Reset Link.");
             passwordResetDialog.setView(resetMail);
 
-            passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                      //extract the email and send reset link
+            passwordResetDialog.setPositiveButton("Yes", (dialog, which) -> {
+                  //extract the email and send reset link
 
-                    String mail = resetMail.getText().toString();
-                    mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(Login.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Login.this, "Error! Reset Link Is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                String mail = resetMail.getText().toString();
+                mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(unused -> Toast.makeText(Login.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(Login.this, "Error! Reset Link Is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show());
 
-                }
             });
 
             passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
