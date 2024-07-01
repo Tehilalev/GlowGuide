@@ -40,8 +40,17 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".AlarmSettingsActivity"
+            android:exported="false" />
 
-        <receiver android:name="AlarmReceiver"/>
+        <receiver
+            android:name=".AlarmReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

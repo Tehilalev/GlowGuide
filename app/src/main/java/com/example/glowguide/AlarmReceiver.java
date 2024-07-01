@@ -1,5 +1,6 @@
 package com.example.glowguide;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,6 +12,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 public class AlarmReceiver extends BroadcastReceiver {
+    @SuppressLint("UnsafeProtectedBroadcastReceiver")
     @Override
     public void onReceive(Context context, Intent intent) {
 
