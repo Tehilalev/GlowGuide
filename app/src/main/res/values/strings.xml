@@ -27,9 +27,7 @@
     <string name="set_alarm">Set Alarm</string>
     <string name="cancel_alarm">Cancel Alarm</string>
     <string name="add_notification">Add Notification</string>
-
-
-
+    <string name="explore_nearby_places">Explore Nearby Places</string>
 
 
 </resources>

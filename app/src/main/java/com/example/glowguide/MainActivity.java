@@ -11,11 +11,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-
     FirebaseAuth auth;
     Button button;
     TextView textView;
     FirebaseUser user;
+    Button exploreNearbyPlacesBtn;
+
     private ActivityMainBinding binding;
 
     @Override
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
         textView = findViewById(R.id.user_details);
+        exploreNearbyPlacesBtn = findViewById(R.id.exploreNearbyPlacesBtn);
         user = auth.getCurrentUser();
+
         if (user == null) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
@@ -44,9 +47,17 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
+        exploreNearbyPlacesBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), ExploreNearbyPlacesActivity.class);
+            startActivity(intent);
+        });
+
         binding.addNotificationBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), AlarmSettingsActivity.class);
             startActivity(intent);
         });
     }
+
+
+
 }
