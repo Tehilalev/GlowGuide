@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Button button;
-    TextView textView;
+
     FirebaseUser user;
     Button exploreNearbyPlacesBtn;
 
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
-        textView = findViewById(R.id.user_details);
         exploreNearbyPlacesBtn = findViewById(R.id.exploreNearbyPlacesBtn);
         user = auth.getCurrentUser();
 
@@ -36,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
-        } else {
-            textView.setText(user.getEmail());
         }
 
         button.setOnClickListener(view -> {
