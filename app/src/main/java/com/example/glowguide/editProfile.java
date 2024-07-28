@@ -1,11 +1,8 @@
 package com.example.glowguide;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -86,19 +83,11 @@ public class editProfile extends AppCompatActivity {
             Map<String, Object> edited = new HashMap<>();
             edited.put("fName", profileName.getText().toString());
             edited.put("phone", profilePhone.getText().toString());
-            docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Toast.makeText(editProfile.this, "Profile updated", Toast.LENGTH_SHORT).show();
-                    startActivity((new Intent(getApplicationContext(), UserProfileActivity.class)));
-                    finish();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(editProfile.this, "Profile update failed", Toast.LENGTH_SHORT).show();
-                }
-            });
+            docRef.update(edited).addOnSuccessListener(aVoid -> {
+                Toast.makeText(editProfile.this, "Profile updated", Toast.LENGTH_SHORT).show();
+                startActivity((new Intent(getApplicationContext(), UserProfileActivity.class)));
+                finish();
+            }).addOnFailureListener(e -> Toast.makeText(editProfile.this, "Profile update failed", Toast.LENGTH_SHORT).show());
 
         });
         profileName.setText(fullName);

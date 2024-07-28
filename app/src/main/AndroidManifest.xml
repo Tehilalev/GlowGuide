@@ -22,9 +22,6 @@
             android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".change_password"
-            android:exported="false" />
-        <activity
             android:name=".editProfile"
             android:exported="false"
             android:theme="@style/Theme.Material3.Light.NoActionBar" />
