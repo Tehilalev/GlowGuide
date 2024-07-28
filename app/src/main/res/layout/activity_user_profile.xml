@@ -164,7 +164,7 @@
 
             <Button
                 android:id="@+id/editProfile"
-                android:layout_width="400dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider_password"
                 android:layout_marginTop="20dp"
