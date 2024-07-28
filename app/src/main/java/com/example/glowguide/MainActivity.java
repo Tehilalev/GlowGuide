@@ -1,7 +1,9 @@
 package com.example.glowguide;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseUser user;
     Button exploreNearbyPlacesBtn;
+    Button userProfileBtn;
 
     private ActivityMainBinding binding;
 
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
         exploreNearbyPlacesBtn = findViewById(R.id.exploreNearbyPlacesBtn);
+        userProfileBtn = findViewById(R.id.personalProfileBtn);
         user = auth.getCurrentUser();
 
         if (user == null) {
@@ -53,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), AlarmSettingsActivity.class);
             startActivity(intent);
         });
+
+        userProfileBtn.setOnClickListener(v -> {
+            Log.d("MainActivity", "UserProfile button clicked");
+            Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+            startActivity(intent);
+        });
+
     }
 
 

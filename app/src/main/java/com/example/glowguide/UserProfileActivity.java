@@ -3,6 +3,7 @@ package com.example.glowguide;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
@@ -24,7 +25,8 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        Log.d("UserProfileActivity", "onCreate called");
+        // EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user_profile);
 
         Button editProfile;
@@ -32,8 +34,6 @@ public class UserProfileActivity extends AppCompatActivity {
         FirebaseAuth fAuth;
         FirebaseFirestore fStore;
         String userId;
-
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Personal Area");
 
         welcome = findViewById(R.id.textView_show_welcome);
         fullName = findViewById(R.id.textView_show_full_name);
