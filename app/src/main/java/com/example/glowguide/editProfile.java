@@ -9,19 +9,22 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class editProfile extends AppCompatActivity {
 
-    EditText profileName, profileEmail, profilePhone, profilePassword;
+    EditText profileName, profileEmail, profilePhone;
     Button saveBtn;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -39,10 +42,6 @@ public class editProfile extends AppCompatActivity {
         return !TextUtils.isEmpty(phoneNumber) && phoneNumber.length() == 10 && phoneNumber.matches("[0-9]+");
     }
 
-    private boolean isValidPassword(String password) {
-        return !TextUtils.isEmpty(password) && password.length() >= 8 && password.matches(".*[A-Z].*");
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,6 @@ public class editProfile extends AppCompatActivity {
         String fullName = data.getStringExtra("fName");
         String email = data.getStringExtra("email");
         String phone = data.getStringExtra("phone");
-        String password = data.getStringExtra("password");
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -62,8 +60,9 @@ public class editProfile extends AppCompatActivity {
         profileName = findViewById(R.id.editName);
         profileEmail = findViewById(R.id.editEmail);
         profilePhone = findViewById(R.id.editPhone);
-        profilePassword = findViewById(R.id.editPassword);
         saveBtn = findViewById(R.id.save);
+
+
 
         saveBtn.setOnClickListener(v -> {
 
@@ -83,41 +82,30 @@ public class editProfile extends AppCompatActivity {
                 return;
             }
 
-            if (!isValidPassword(profilePassword.getText().toString())) {
-                Toast.makeText(editProfile.this, "Password should contain at least 8 characters with one uppercase letter", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            //String email = profileEmail.getText().toString();
-            String password1 = profilePassword.getText().toString();
-
-            user.updatePassword(password1).addOnCompleteListener(task -> {
-                if (task.isSuccessful())
-                {
-                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
-                    Map<String, Object> edited = new HashMap<>();
-                    edited.put("fName", profileName.getText().toString());
-                    //edited.put("email", email);
-                    edited.put("phone", profilePhone.getText().toString());
-                    edited.put("password", password1);
-                    docRef.update(edited);
-                    Toast.makeText(editProfile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+            DocumentReference docRef = fStore.collection("users").document(user.getUid());
+            Map<String, Object> edited = new HashMap<>();
+            edited.put("fName", profileName.getText().toString());
+            edited.put("phone", profilePhone.getText().toString());
+            docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(editProfile.this, "Profile updated", Toast.LENGTH_SHORT).show();
+                    startActivity((new Intent(getApplicationContext(), UserProfileActivity.class)));
                     finish();
                 }
-                else {
-                    Toast.makeText(editProfile.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(editProfile.this, "Profile update failed", Toast.LENGTH_SHORT).show();
                 }
             });
 
-
         });
-
         profileName.setText(fullName);
         profileEmail.setText(email);
         profilePhone.setText(phone);
-        profilePassword.setText(password);
 
-        Log.d(TAG, "onCreate: " + fullName + " " + email + " " + phone + " " + password);
+
+
     }
 }

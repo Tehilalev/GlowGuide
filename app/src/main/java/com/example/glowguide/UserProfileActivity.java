@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class UserProfileActivity extends AppCompatActivity {
 
-    private TextView welcome, fullName, email, phone, password;
+    private TextView welcome, fullName, email, phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,9 @@ public class UserProfileActivity extends AppCompatActivity {
         fullName = findViewById(R.id.textView_show_full_name);
         email = findViewById(R.id.textView_show_email);
         phone = findViewById(R.id.textView_show_mobile);
-        password = findViewById(R.id.textView_show_password);
 
         editProfile = findViewById(R.id.editProfile);
+        Button changePassword = findViewById(R.id.changePasswordBtn);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -56,7 +56,6 @@ public class UserProfileActivity extends AppCompatActivity {
                 fullName.setText(value.getString("fName"));
                 email.setText(value.getString("email"));
                 phone.setText(value.getString("phone"));
-                password.setText(value.getString("password"));
                 welcome.setText("Welcome " + value.getString("fName"));
 
             }
@@ -67,9 +66,13 @@ public class UserProfileActivity extends AppCompatActivity {
             i.putExtra("fName", fullName.getText().toString());
             i.putExtra("email", email.getText().toString());
             i.putExtra("phone", phone.getText().toString());
-            i.putExtra("password", password.getText().toString());
             startActivity(i);
 
+        });
+
+        changePassword.setOnClickListener(v -> {
+            Intent i = new Intent(v.getContext(), ChangePasswordActivity.class);
+            startActivity(i);
         });
 
 

@@ -58,17 +58,6 @@
             android:text="@string/_phone"
             tools:ignore="LabelFor,Suspicious0dp,TextFields" />
 
-        <EditText
-            android:id="@+id/editPassword"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:autofillHints="_password"
-            android:ems="10"
-            android:inputType="text"
-            android:text="@string/_password"
-            tools:ignore="LabelFor,Suspicious0dp,TextFields" />
-
         <Button
             android:id="@+id/save"
             android:layout_width="wrap_content"

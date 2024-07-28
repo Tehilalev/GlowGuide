@@ -31,6 +31,10 @@
     <string name="a" />
     <string name="insert_text_here_to_show_the_button_s_action_and_functionality">Insert text here to show the button\'s action and functionality</string>
     <string name="personal_profile">Personal Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="update_password">Update Password</string>
 
 
 </resources>
