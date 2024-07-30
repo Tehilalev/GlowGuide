@@ -74,7 +74,7 @@
                             android:textColor="#000000" />
 
                         <Button
-                            android:id="@+id/card1bt"
+                            android:id="@+id/skincareBtn"
                             android:layout_width="65dp"
                             android:layout_height="70dp"
                             android:backgroundTint="#CFE6FE"
