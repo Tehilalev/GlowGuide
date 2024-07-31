@@ -19,12 +19,10 @@ public class MainActivity extends AppCompatActivity {
     Button userProfileBtn;
     Button skincareBtn;
 
-    private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.glowguide.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 

@@ -98,7 +98,7 @@ public class NewQuestionnaire extends AppCompatActivity {
 
 
     private int calculateScore() {
-        int score = 0;
+        int score;
 
         int q2Score = getSelectedScore(q2Group);
         int q3Score = getSelectedScore(q3Group);
