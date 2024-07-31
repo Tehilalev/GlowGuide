@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layoutDirection="ltr"
+        >
+
+        <!-- Question 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you use sunscreen in your daily life?"
+            tools:ignore="HardcodedText" />
+        <RadioGroup
+            android:id="@+id/q1Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                tools:ignore="HardcodedText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
+
+        <!-- Question 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How often do you feel like you need to use face cream?"
+            tools:ignore="HardcodedText" />
+        <RadioGroup
+            android:id="@+id/q2Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/at_least_twice_a_day"
+                tools:ignore="HardcodedText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/once_a_day"
+                tools:ignore="HardcodedText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rarely"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
+
+        <!-- Question 3 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mark_what_best_describes_your_complexion" />
+        <RadioGroup
+            android:id="@+id/q3Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_facial_skin_is_dry_hard" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_facial_skin_is_oily_in_certain_areas" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/the_skin_of_my_face_is_very_oily" />
+        </RadioGroup>
+
+        <!-- Question 4 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mark_the_problems_you_faced_in_the_last_4_weeks" />
+        <LinearLayout
+            android:id="@+id/q4Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/q4_acne_pimples"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/acne_pimples" />
+            <CheckBox
+                android:id="@+id/q4_redness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/redness" />
+            <CheckBox
+                android:id="@+id/q4_irritation_shaving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/irritation_due_to_shaving" />
+            <CheckBox
+                android:id="@+id/q4_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/none_of_these" />
+        </LinearLayout>
+
+        <!-- Question 5 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/describe_your_facial_skin_after_using_facial_soap" />
+        <RadioGroup
+            android:id="@+id/q5Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_facial_skin_feels_very_tight" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_facial_skin_feels_clean_and_pleasant" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/i_feel_like_my_t_zone_is_dry" />
+        </RadioGroup>
+
+        <!-- Question 6 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Are you dealing with uneven skin tone, pigmentation or dark spots?"
+            tools:ignore="HardcodedText" />
+        <RadioGroup
+            android:id="@+id/q6Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                tools:ignore="HardcodedText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
+
+        <!-- Question 7 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/how_much_water_do_you_drink_during_the_day" />
+        <RadioGroup
+            android:id="@+id/q7Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/does_not_drink_during_the_day" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0_5_cups" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_5_cups_or_more" />
+        </RadioGroup>
+
+        <!-- Question 8 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="what is your gender?"
+            tools:ignore="HardcodedText" />
+        <RadioGroup
+            android:id="@+id/q8Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                tools:ignore="HardcodedText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                tools:ignore="HardcodedText" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D0E7FF"
+            android:textColor="#000000"
+            android:text="@string/submit" />
+
+    </LinearLayout>
+</ScrollView>

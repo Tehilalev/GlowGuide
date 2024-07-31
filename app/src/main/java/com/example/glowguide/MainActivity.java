@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     Button exploreNearbyPlacesBtn;
     Button userProfileBtn;
+    Button skincareBtn;
 
     private ActivityMainBinding binding;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.logout);
+        skincareBtn = findViewById(R.id.skincareBtn);
         exploreNearbyPlacesBtn = findViewById(R.id.exploreNearbyPlacesBtn);
         userProfileBtn = findViewById(R.id.personalProfileBtn);
         user = auth.getCurrentUser();
@@ -44,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
+        });
+
+        skincareBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), SkincareActivity.class);
+            startActivity(intent);
         });
 
         exploreNearbyPlacesBtn.setOnClickListener(v -> {
