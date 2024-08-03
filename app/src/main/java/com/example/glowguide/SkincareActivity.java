@@ -21,8 +21,8 @@ public class SkincareActivity extends AppCompatActivity {
     private FirebaseFirestore fStore;
     private FirebaseUser user;
 
-    private TextView resultTextView, skinTypeText, q1Sunscreen, q6, q7Water;
-    private String drySkin, mixedSkin, sensitiveSkin, oilySkin, sunscreen, q6S, water;
+    private TextView resultTextView, skinTypeText,q4Sensitive, q1Sunscreen, q6, q7Water;
+    private String drySkin, combinationSkin, sensitiveSkin, oilySkin, sunscreen, q6S, water;
 
 
     @SuppressLint("MissingInflatedId")
@@ -38,6 +38,7 @@ public class SkincareActivity extends AppCompatActivity {
         newQuestionnaireBtn = findViewById(R.id.newQuestionnaireBtn);
         resultTextView = findViewById(R.id.resultTextView);
         skinTypeText = findViewById(R.id.skinTypeText);
+        q4Sensitive = findViewById(R.id.q4Sensitive);
         q1Sunscreen = findViewById(R.id.q1Sunscreen);
         q6 = findViewById(R.id.q6);
         q7Water = findViewById(R.id.q7Water);
@@ -46,7 +47,7 @@ public class SkincareActivity extends AppCompatActivity {
                 "This skin type can be prone to dullness and fine lines. " +
                 "Regularly using moisturizing products and avoiding harsh cleansers can help " +
                 "restore hydration and keep your skin feeling smooth and supple.";
-        mixedSkin = "Combination skin features characteristics of more than one skin type on " +
+        combinationSkin = "Combination skin features characteristics of more than one skin type on " +
                 "different areas of the face. Typically, the T-zone (forehead, nose, and chin) may " +
                 "be oily, while the cheeks and other areas can be normal to dry. This skin type " +
                 "requires a balanced approach in skincare, targeting both oily and dry zones to " +
@@ -99,6 +100,19 @@ public class SkincareActivity extends AppCompatActivity {
                         }
                     }
 
+                    if (document.contains("q4")) {
+                        String q4 = document.getString("q4");
+                        if (q4 != null) {
+                            if (q4.equals("Sensitive")) {
+                                q4Sensitive.setText(sensitiveSkin);
+                                q4Sensitive.setVisibility(View.VISIBLE);
+                            } else {
+                                q4Sensitive.setVisibility(View.GONE);
+                            }
+                        } else {
+                            q4Sensitive.setVisibility(View.GONE);                            }
+                    }
+
                     if (document.contains("q1")) {
                         String q1 = document.getString("q1");
                         if (q1 != null) {
@@ -106,10 +120,10 @@ public class SkincareActivity extends AppCompatActivity {
                                 q1Sunscreen.setText(sunscreen);
                                 q1Sunscreen.setVisibility(View.VISIBLE);
                             } else {
-                                resultTextView.setVisibility(View.GONE);
+                                q1Sunscreen.setVisibility(View.GONE);
                             }
                         } else {
-                            resultTextView.setVisibility(View.GONE);                            }
+                            q1Sunscreen.setVisibility(View.GONE);                            }
                     }
 
                     if (document.contains("q6")) {
@@ -150,16 +164,13 @@ public class SkincareActivity extends AppCompatActivity {
 
     private void displaySkinTypeExplanation(String skinType) {
         switch (skinType) {
-            case "dry":
+            case "Dry":
                 skinTypeText.setText(drySkin);
                 break;
-            case "mixed":
-                skinTypeText.setText(mixedSkin);
+            case "Combination":
+                skinTypeText.setText(combinationSkin);
                 break;
-            case "sensitive":
-                skinTypeText.setText(sensitiveSkin);
-                break;
-            case "oily":
+            case "Oily":
                 skinTypeText.setText(oilySkin);
                 break;
             default:

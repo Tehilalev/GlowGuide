@@ -34,6 +34,13 @@
             android:layout_marginTop="30dp"/>
 
         <TextView
+            android:id="@+id/q4Sensitive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
             android:id="@+id/q1Sunscreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
