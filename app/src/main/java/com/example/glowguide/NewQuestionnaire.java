@@ -214,7 +214,8 @@ public class NewQuestionnaire extends AppCompatActivity {
     private void saveResultToFirestore(String skinType) {
         DocumentReference docRef = fStore.collection("users").document(user.getUid());
         docRef.update("skinType", skinType)
-                .addOnSuccessListener(aVoid -> Toast.makeText(NewQuestionnaire.this, "Skin type saved successfully!", Toast.LENGTH_SHORT).show())
+                .addOnSuccessListener(aVoid -> {
+                })
                 .addOnFailureListener(e -> Toast.makeText(NewQuestionnaire.this, "Error saving skin type. Please try again.", Toast.LENGTH_SHORT).show());
     }
 
