@@ -81,8 +81,13 @@
                             android:elevation="3dp"
                             android:textAlignment="viewEnd"
                             android:textAllCaps="false"
+                            android:drawablePadding="0dp"
                             android:textColor="#000000"
-                            app:iconTint="#FFFFFF" />
+                            android:paddingStart="17dp"
+                            android:paddingEnd="100dp"
+                            app:icon="@drawable/stars_"
+                            app:iconTint="#FFFFFF"
+                            app:iconSize="30dp" />
 
                     </LinearLayout>
 
@@ -253,6 +258,7 @@
                             android:textAlignment="viewEnd"
                             android:textAllCaps="false"
                             android:textColor="#000000"
+                            app:icon="@drawable/profile"
                             app:iconTint="#FFFFFF"
                             tools:text=" "/>
 
