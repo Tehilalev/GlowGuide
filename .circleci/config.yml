@@ -4,6 +4,9 @@ executors:
   android-executor:
     docker:
       - image: circleci/android:api-30
+    environment:
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk
+      PATH: /usr/lib/jvm/java-17-openjdk/bin/:${PATH}
 
 jobs:
   build:
@@ -13,7 +16,14 @@ jobs:
 
       - run:
           name: Set up JDK
-          command: sdkmanager "platform-tools" "platforms;android-30"
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y openjdk-17-jdk
+            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk/bin/java
+
+      - run:
+          name: Verify JDK Version
+          command: java -version
 
       - run:
           name: Grant execute permission for Gradle wrapper
