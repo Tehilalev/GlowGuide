@@ -37,6 +37,13 @@ jobs:
           name: Verify APK Path
           command: ls -R app/build/outputs/apk/release
 
+      - run:
+          - name: Set up JDK
+            uses: actions/setup-java@v2
+            with:
+                java-version: '17'
+                distribution: 'temurin'
+
       - store_artifacts:
           path: app/build/outputs/apk/release/app-release.apk
           destination: app-release.apk
