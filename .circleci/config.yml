@@ -12,6 +12,10 @@ jobs:
   build:
     executor: android-executor
     steps:
+      - run:
+          name: Install SSH
+          command: sudo apt-get update && sudo apt-get install -y openssh-client
+
       - checkout
 
       - run:
@@ -44,6 +48,10 @@ jobs:
   deploy:
     executor: android-executor
     steps:
+      - run:
+          name: Install SSH
+          command: sudo apt-get update && sudo apt-get install -y openssh-client
+
       - checkout
 
       - run:
