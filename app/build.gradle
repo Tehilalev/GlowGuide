@@ -17,21 +17,28 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\tehil.000\\AndroidStudioProjects\\GlowGuide\\my-release-key.jks') // Path to your keystore file
+            storePassword '123456'      // Keystore password
+            keyAlias 'my-key-alias'                    // Key alias
+            keyPassword '123456'              // Key password
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release // Add this line to sign the release build
         }
     }
 
-    buildFeatures{
-
+    buildFeatures {
         viewBinding true
     }
 
     compileOptions {
-        // sourceCompatibility JavaVersion.VERSION_1_8
-        // targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
