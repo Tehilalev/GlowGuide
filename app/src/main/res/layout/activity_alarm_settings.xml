@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/alarm_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".AlarmSettingsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1EBF5">
+
+        <Button
+            android:id="@+id/cancelAlarmBtn"
+            android:layout_width="339dp"
+            android:layout_height="69dp"
+            android:layout_marginHorizontal="26dp"
+            android:backgroundTint="#86A8CC"
+            android:textColor="#000000"
+            android:text="@string/cancel_alarm"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectedTime"
+            app:layout_constraintVertical_bias="0.402" />
+
+        <TextView
+            android:id="@+id/selectedTime"
+            android:layout_width="355dp"
+            android:layout_height="187dp"
+            android:text="@string/notification_time"
+            android:textAlignment="center"
+            android:textColor="#7C9ABA"
+            android:textSize="70sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.311" />
+
+        <Button
+            android:id="@+id/selectTimeBtn"
+            android:layout_width="164dp"
+            android:layout_height="68dp"
+            android:backgroundTint="#D0E7FF"
+            android:textColor="#000000"
+            android:text="@string/select_time"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/cancelAlarmBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.854"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectedTime"
+            app:layout_constraintVertical_bias="0.881" />
+
+        <Button
+            android:id="@+id/setAlarmBtn"
+            android:layout_width="164dp"
+            android:layout_height="68dp"
+            android:layout_marginHorizontal="26dp"
+            android:backgroundTint="#D0E7FF"
+            android:textColor="#000000"
+            android:text="@string/set_alarm"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/cancelAlarmBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.064"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectedTime"
+            app:layout_constraintVertical_bias="0.881" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

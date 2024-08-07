@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.2"
+agp = "8.4.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
@@ -12,6 +12,9 @@ firebaseDatabase = "21.0.0"
 firebaseAuth = "23.0.0"
 firebase-firestore = "25.0.0"
 
+osmdroid = "6.1.18"
+playServicesLocation = "21.3.0"
+okhttp3 = "4.9.3"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -25,6 +28,10 @@ google-services = { group = "com.google.gms", name = "google-services", version.
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebase-firestore" }
+
+osmdroid = { group = "org.osmdroid", name = "osmdroid-android", version.ref = "osmdroid" }
+playserviceslocation = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
