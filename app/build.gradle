@@ -19,10 +19,11 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\tehil.000\\AndroidStudioProjects\\GlowGuide\\my-release-key.jks') // Path to your keystore file
-            storePassword '123456'      // Keystore password
-            keyAlias 'my-key-alias'                    // Key alias
-            keyPassword '123456'              // Key password
+            // Update this path to match where the keystore will be located in your GitHub Actions environment
+            storeFile file('/home/runner/work/GlowGuide/keystore/my-release-key.jks') // Adjust to Unix-style path
+            storePassword '123456'      // Replace with your keystore password
+            keyAlias 'my-key-alias'     // Replace with your key alias
+            keyPassword '123456'        // Replace with your key password
         }
     }
 
