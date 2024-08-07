@@ -1,0 +1,66 @@
+name: Android CD
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for Gradle wrapper
+        run: chmod +x gradlew
+
+      - name: Build with Gradle and Sign APK
+        run: ./gradlew assembleRelease
+
+      - name: Verify APK Path
+        run: ls -R app/build/outputs/apk/release
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release.apk
+          path: app/build/outputs/apk/release/app-release.apk
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: app-release.apk
+
+      - name: Verify Downloaded APK Path
+        run: ls -R /home/runner/work/schedule_App/schedule_App
+
+      - name: Debug Secrets (to be removed later)
+        run: |
+          echo "App ID: ${{ secrets.FIREBASE_APP_ID }}"
+          echo "Service Credentials: ${{ secrets.FIREBASE_CREDENTIAL_FILE_CONTENT }}"
+          echo "Release APK Path: /home/runner/work/schedule_App/schedule_App/app-release.apk"
+
+      - name: Set up Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_CREDENTIAL_FILE_CONTENT }}
+          file: /home/runner/work/schedule_App/schedule_App/app-release.apk
+          groups: testers
+          releaseNotes: "New release from GitHub Actions"
