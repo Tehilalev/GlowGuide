@@ -1,5 +1,6 @@
 package com.example.glowguide;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                                     .update("password", newPwd)
                                     .addOnSuccessListener(aVoid -> {
                                         Toast.makeText(ChangePasswordActivity.this, "Password updated successfully", Toast.LENGTH_SHORT).show();
+                                        startActivity((new Intent(getApplicationContext(), UserProfileActivity.class)));
                                         finish();
                                     })
                                     .addOnFailureListener(e -> {
