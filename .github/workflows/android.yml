@@ -25,8 +25,17 @@ jobs:
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x gradlew
 
+      - name: Decode and create keystore file
+        run: |
+          mkdir -p /home/runner/work/GlowGuide/keystore
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > /home/runner/work/GlowGuide/keystore/my-release-key.jks
+
       - name: Build with Gradle and Sign APK
         run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
       - name: Verify APK Path
         run: ls -R app/build/outputs/apk/release

@@ -17,7 +17,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
+    /*signingConfigs {
         release {
             // Update this path to match where the keystore will be located in your GitHub Actions environment
             storeFile file('/home/runner/work/GlowGuide/keystore/my-release-key.jks') // Adjust to Unix-style path
@@ -25,7 +25,7 @@ android {
             keyAlias 'my-key-alias'     // Replace with your key alias
             keyPassword '123456'        // Replace with your key password
         }
-    }
+    }*/
 
     buildTypes {
         release {
