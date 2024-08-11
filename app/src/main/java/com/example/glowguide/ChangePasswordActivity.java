@@ -44,7 +44,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             }
 
             if (!isValidPassword(newPwd)) {
-                Toast.makeText(ChangePasswordActivity.this, "New password should be at least 8 characters with one uppercase letter", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePasswordActivity.this, "Password must be 8+ characters with an uppercase letter", Toast.LENGTH_SHORT).show();
                 return;
             }
 
