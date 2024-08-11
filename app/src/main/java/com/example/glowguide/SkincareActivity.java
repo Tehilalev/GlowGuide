@@ -61,7 +61,10 @@ public class SkincareActivity extends AppCompatActivity {
                 "This type often experiences enlarged pores and may be prone to acne and blackheads " +
                 "due to the extra oil. Regular cleansing and oil-control products can help manage " +
                 "this skin type.";
-        sunscreen = "put cream";
+        sunscreen = "Using sunscreen on the face is crucial for protecting your skin from harmful UV " +
+                "rays, which can cause premature aging, sunburn, and increase the risk of skin cancer. " +
+                "Daily application helps prevent dark spots, fine lines, and wrinkles. It also shields " +
+                "your skin from environmental damage, keeping it healthy and radiant.";
         q6S = "put something";
         water = "Staying hydrated is essential for maintaining healthy, glowing skin. " +
                 "Drinking plenty of water helps keep your skin moisturized from the inside out, " +
