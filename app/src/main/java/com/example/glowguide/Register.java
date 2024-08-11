@@ -128,7 +128,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if (!isValidPassword(_password)) {
-                    Toast.makeText(Register.this, "Password should contain at least 8 characters with one uppercase letter", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Password must be 8+ characters with an uppercase letter", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
