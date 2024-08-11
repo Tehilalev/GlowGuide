@@ -53,8 +53,6 @@ public class NewQuestionnaire extends AppCompatActivity {
         submitButton.setOnClickListener(v -> {
             if (areAllQuestionsAnswered()) {
                 String skinType = decisionTree();
-                // int score = calculateScore();
-                //String skinType = classifySkinType(score);
                 saveResultToFirestore(skinType);
                 save5AnswersToFirestore();
                 startActivity((new Intent(getApplicationContext(), SkincareActivity.class)));
@@ -67,21 +65,6 @@ public class NewQuestionnaire extends AppCompatActivity {
         });
     }
 
-    /*private String get4Answers(RadioGroup group) {
-        int selectedId = group.getCheckedRadioButtonId();
-        if (selectedId == -1) {
-            Log.e("NewQuestionnaire", "No selection made for a question.");
-            return "0";
-        }
-
-        RadioButton selectedRadioButton = findViewById(selectedId);
-        if (selectedRadioButton == null) {
-            Log.e("NewQuestionnaire", "Selected radio button is null.");
-            return "0";
-        }
-
-        return selectedRadioButton.getText().toString();
-    }*/
 
     private String getCheckboxAnswers(CheckBox... checkBoxes) {
         // StringBuilder selectedAnswers = new StringBuilder();
@@ -104,16 +87,6 @@ public class NewQuestionnaire extends AppCompatActivity {
             return "Sensitive";
         }
 
-
-        /*if (selectedAnswers.length() == 0) {
-            Log.e("NewQuestionnaire", "No selection made for the checkboxes.");
-            return "0";
-        }
-
-        // Remove the trailing comma and space
-        selectedAnswers.setLength(selectedAnswers.length() - 2); */
-
-        // return selectedAnswers.toString();
     }
 
 
@@ -139,77 +112,6 @@ public class NewQuestionnaire extends AppCompatActivity {
 
     }
 
-
-    /*private int calculateScore() {
-        int score;
-
-        int q2Score = getSelectedScore(q2Group);
-        int q3Score = getSelectedScore(q3Group);
-        int q4Score = getQ4Score(); // Updated to handle multiple selections
-        int q5Score = getSelectedScore(q5Group);
-
-        score = q2Score + q3Score + q4Score + q5Score;
-
-        return score;
-    }*/
-
-    /*private int getSelectedScore(RadioGroup group) {
-        int selectedId = group.getCheckedRadioButtonId();
-        if (selectedId == -1) {
-            Log.e("NewQuestionnaire", "No selection made for a question.");
-            return 0;
-        }
-
-        RadioButton selectedRadioButton = findViewById(selectedId);
-        if (selectedRadioButton == null) {
-            Log.e("NewQuestionnaire", "Selected radio button is null.");
-            return 0;
-        }
-
-        String selectedText = selectedRadioButton.getText().toString();
-
-        switch (selectedText) {
-            case "At least twice a day":
-                return 100;
-            case "Once a day":
-                return 50;
-            case "Rarely":
-                return 0;
-            case "My facial skin is dry/hard":
-                return 100;
-            case "My facial skin is oily in certain areas":
-                return 50;
-            case "The skin of my face is very oily":
-                return 0;
-            default:
-                return 0;
-        }
-    }*/
-
-    // New method to handle multiple selections for Question 4
-    /*private int getQ4Score() {
-        int score = 0;
-        if (q4_acne_pimples.isChecked()) score -= 20;
-        if (q4_redness.isChecked()) score -= 20;
-        if (q4_irritation_shaving.isChecked()) score -= 20;
-        if (q4_none.isChecked()) score += 20;
-        return score;
-    }*/
-
-
-    /*private String classifySkinType(int score) {
-        if (score >= 230 && score <= 320) {
-            return "dry";
-        } else if (score >= 170 && score <= 229) {
-            return "mixed";
-        } else if (score >= 80 && score <= 169) {
-            return "sensitive";
-        } else if (score >= 0 && score <= 79) {
-            return "oily";
-        } else {
-            return "unknown";
-        }
-    }*/
 
     private void saveResultToFirestore(String skinType) {
         DocumentReference docRef = fStore.collection("users").document(user.getUid());
@@ -315,7 +217,7 @@ public class NewQuestionnaire extends AppCompatActivity {
         } else if (getRadioGroupAnswers(q2Group).equals("Once a day") &&
                 getRadioGroupAnswers(q3Group).equals("My facial skin is oily in certain areas") &&
                 getRadioGroupAnswers(q5Group).equals("My facial skin feels clean and pleasant")) {
-            return " Combination";
+            return "Combination";
         } else if (getRadioGroupAnswers(q2Group).equals("Once a day") &&
                 getRadioGroupAnswers(q3Group).equals("My facial skin is oily in certain areas") &&
                 getRadioGroupAnswers(q5Group).equals("I feel like my T-zone is dry")) {
