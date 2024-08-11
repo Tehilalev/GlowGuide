@@ -65,7 +65,13 @@ public class SkincareActivity extends AppCompatActivity {
                 "rays, which can cause premature aging, sunburn, and increase the risk of skin cancer. " +
                 "Daily application helps prevent dark spots, fine lines, and wrinkles. It also shields " +
                 "your skin from environmental damage, keeping it healthy and radiant.";
-        q6S = "put something";
+        q6S = "For uneven skin tone, pigmentation, or dark spots, it is recommend to use products " +
+                "with ingredients like vitamin C, niacinamide, and alpha hydroxy acids (AHAs). " +
+                "A brightening serum with vitamin C can help fade dark spots and improve overall " +
+                "radiance. Niacinamide is great for evening out skin tone and reducing redness, " +
+                "while AHAs like glycolic acid can gently exfoliate the skin to reveal a more even " +
+                "complexion. Don't forget to pair these with a broad-spectrum sunscreen to prevent " +
+                "further pigmentation.";
         water = "Staying hydrated is essential for maintaining healthy, glowing skin. " +
                 "Drinking plenty of water helps keep your skin moisturized from the inside out, " +
                 "which can improve its texture and overall appearance. Aim to drink at least 8 " +
