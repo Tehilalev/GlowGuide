@@ -100,7 +100,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q6Card"
             android:layout_width="347dp"
-            android:layout_height="310dp"
+            android:layout_height="350dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
