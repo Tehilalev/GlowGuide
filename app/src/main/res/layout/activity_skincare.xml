@@ -35,7 +35,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/skinTypeTextCard"
             android:layout_width="347dp"
-            android:layout_height="197dp"
+            android:layout_height="216dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
@@ -47,7 +47,7 @@
             <TextView
                 android:id="@+id/skinTypeText"
                 android:layout_width="327dp"
-                android:layout_height="172dp"
+                android:layout_height="187dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
@@ -58,7 +58,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q4SensitiveCard"
             android:layout_width="347dp"
-            android:layout_height="167dp"
+            android:layout_height="207dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
@@ -68,7 +68,7 @@
             <TextView
                 android:id="@+id/q4Sensitive"
                 android:layout_width="327dp"
-                android:layout_height="149dp"
+                android:layout_height="178dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
@@ -79,7 +79,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q1SunscreenCard"
             android:layout_width="347dp"
-            android:layout_height="195dp"
+            android:layout_height="236dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
@@ -89,7 +89,7 @@
             <TextView
                 android:id="@+id/q1Sunscreen"
                 android:layout_width="327dp"
-                android:layout_height="159dp"
+                android:layout_height="203dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
@@ -100,7 +100,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q6Card"
             android:layout_width="347dp"
-            android:layout_height="277dp"
+            android:layout_height="297dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
@@ -110,7 +110,7 @@
             <TextView
                 android:id="@+id/q6"
                 android:layout_width="327dp"
-                android:layout_height="233dp"
+                android:layout_height="257dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
@@ -121,7 +121,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q7WaterCard"
             android:layout_width="347dp"
-            android:layout_height="260dp"
+            android:layout_height="276dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
@@ -132,7 +132,7 @@
             <TextView
                 android:id="@+id/q7Water"
                 android:layout_width="327dp"
-                android:layout_height="221dp"
+                android:layout_height="240dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
