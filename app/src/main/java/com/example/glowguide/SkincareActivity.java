@@ -113,10 +113,11 @@ public class SkincareActivity extends AppCompatActivity {
                             resultTextView.setText("Your skin type is: " + skinType);
                             resultTextView.setVisibility(View.VISIBLE);
                             resultTextView.setVisibility(View.VISIBLE);
+                            skinTypeTextCard.setVisibility(View.VISIBLE);
                             displaySkinTypeExplanation(skinType);
                         } else {
                             resultTextView.setVisibility(View.GONE);
-
+                            skinTypeTextCard.setVisibility(View.GONE);
                         }
                     }
 
