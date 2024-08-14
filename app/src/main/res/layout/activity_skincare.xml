@@ -58,7 +58,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q4SensitiveCard"
             android:layout_width="347dp"
-            android:layout_height="207dp"
+            android:layout_height="252dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
@@ -68,7 +68,7 @@
             <TextView
                 android:id="@+id/q4Sensitive"
                 android:layout_width="327dp"
-                android:layout_height="178dp"
+                android:layout_height="209dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
@@ -79,7 +79,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/q1SunscreenCard"
             android:layout_width="347dp"
-            android:layout_height="236dp"
+            android:layout_height="293dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#E5F1FF"
@@ -89,7 +89,7 @@
             <TextView
                 android:id="@+id/q1Sunscreen"
                 android:layout_width="327dp"
-                android:layout_height="203dp"
+                android:layout_height="244dp"
                 android:layout_gravity="center"
                 android:fontFamily="casual"
                 android:gravity="center"
