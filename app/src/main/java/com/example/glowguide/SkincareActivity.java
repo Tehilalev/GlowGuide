@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +23,7 @@ public class SkincareActivity extends AppCompatActivity {
     private FirebaseUser user;
 
     private TextView resultTextView, skinTypeText,q4Sensitive, q1Sunscreen, q6, q7Water;
+    private CardView  skinTypeTextCard, q4SensitiveCard, q1SunscreenCard, q6Card, q7WaterCard;
     private String drySkin, combinationSkin, sensitiveSkin, oilySkin, sunscreen, q6S, water;
 
 
@@ -42,6 +44,14 @@ public class SkincareActivity extends AppCompatActivity {
         q1Sunscreen = findViewById(R.id.q1Sunscreen);
         q6 = findViewById(R.id.q6);
         q7Water = findViewById(R.id.q7Water);
+        // cards
+        skinTypeTextCard = findViewById(R.id.skinTypeTextCard);
+        q4SensitiveCard = findViewById(R.id.q4SensitiveCard);
+        q1SunscreenCard = findViewById(R.id.q1SunscreenCard);
+        q6Card = findViewById(R.id.q6Card) ;
+        q7WaterCard = findViewById(R.id.q7WaterCard);
+
+
 
         drySkin = "Dry skin feels tight, rough, or flaky and often lacks moisture and natural oils. " +
                 "This skin type can be prone to dullness and fine lines. " +
@@ -102,6 +112,7 @@ public class SkincareActivity extends AppCompatActivity {
                         if (skinType != null) {
                             resultTextView.setText("Your skin type is: " + skinType);
                             resultTextView.setVisibility(View.VISIBLE);
+                            resultTextView.setVisibility(View.VISIBLE);
                             displaySkinTypeExplanation(skinType);
                         } else {
                             resultTextView.setVisibility(View.GONE);
@@ -115,11 +126,15 @@ public class SkincareActivity extends AppCompatActivity {
                             if (q4.equals("Sensitive")) {
                                 q4Sensitive.setText(sensitiveSkin);
                                 q4Sensitive.setVisibility(View.VISIBLE);
+                                q4SensitiveCard.setVisibility(View.VISIBLE);
                             } else {
                                 q4Sensitive.setVisibility(View.GONE);
+                                q4SensitiveCard.setVisibility(View.GONE);
                             }
                         } else {
-                            q4Sensitive.setVisibility(View.GONE);                            }
+                            q4Sensitive.setVisibility(View.GONE);
+                            q4SensitiveCard.setVisibility(View.GONE);
+                        }
                     }
 
                     if (document.contains("q1")) {
@@ -128,11 +143,15 @@ public class SkincareActivity extends AppCompatActivity {
                             if (q1.equals("No")) {
                                 q1Sunscreen.setText(sunscreen);
                                 q1Sunscreen.setVisibility(View.VISIBLE);
+                                q1SunscreenCard.setVisibility(View.VISIBLE);
                             } else {
                                 q1Sunscreen.setVisibility(View.GONE);
+                                q1SunscreenCard.setVisibility(View.GONE);
                             }
                         } else {
-                            q1Sunscreen.setVisibility(View.GONE);                            }
+                            q1Sunscreen.setVisibility(View.GONE);
+                            q1SunscreenCard.setVisibility(View.GONE);
+                        }
                     }
 
                     if (document.contains("q6")) {
@@ -141,11 +160,14 @@ public class SkincareActivity extends AppCompatActivity {
                             if (q6_.equals("Yes")) {
                                 q6.setText(q6S);
                                 q6.setVisibility(View.VISIBLE);
+                                q6Card.setVisibility(View.VISIBLE);
                             } else {
                                 q6.setVisibility(View.GONE);
+                                q6Card.setVisibility(View.GONE);
                             }
                         } else {
                             q6.setVisibility(View.GONE);
+                            q6Card.setVisibility(View.GONE);
                         }
                     }
 
@@ -155,11 +177,14 @@ public class SkincareActivity extends AppCompatActivity {
                             if (q7.equals("Does not drink during the day") || q7.equals("0–5 cups")) {
                                 q7Water.setText(water);
                                 q7Water.setVisibility(View.VISIBLE);
+                                q7WaterCard.setVisibility(View.VISIBLE);
                             } else {
                                 q7Water.setVisibility(View.GONE);
+                                q7WaterCard.setVisibility(View.GONE);
                             }
                         } else {
                             q7Water.setVisibility(View.GONE);
+                            q7WaterCard.setVisibility(View.GONE);
                         }
                     }
                 } else {

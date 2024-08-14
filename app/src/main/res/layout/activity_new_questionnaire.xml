@@ -1,219 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FDF6FE">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layoutDirection="ltr"
-        >
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- Question 1 -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/topview4" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Do you use sunscreen in your daily life?"
+            android:textColor="#000000"
             tools:ignore="HardcodedText" />
+
         <RadioGroup
             android:id="@+id/q1Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty"
+                tools:srcCompat="@drawable/empty" />
+
         </RadioGroup>
 
         <!-- Question 2 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="How often do you feel like you need to use face cream?"
+            android:textColor="#000000"
             tools:ignore="HardcodedText" />
+
         <RadioGroup
             android:id="@+id/q2Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/at_least_twice_a_day"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/once_a_day"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/rarely"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty"
+                tools:ignore="DuplicateIds" />
+
         </RadioGroup>
 
         <!-- Question 3 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mark_what_best_describes_your_complexion" />
+            android:fontFamily="casual"
+            android:text="@string/mark_what_best_describes_your_complexion"
+            android:textColor="#000000" />
+
         <RadioGroup
             android:id="@+id/q3Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_facial_skin_is_dry_hard" />
+                android:text="@string/my_facial_skin_is_dry_hard"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_facial_skin_is_oily_in_certain_areas" />
+                android:text="@string/my_facial_skin_is_oily_in_certain_areas"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/the_skin_of_my_face_is_very_oily" />
+                android:text="@string/the_skin_of_my_face_is_very_oily"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty"
+                tools:ignore="DuplicateIds" />
+
         </RadioGroup>
 
         <!-- Question 4 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mark_the_problems_you_faced_in_the_last_4_weeks" />
+            android:fontFamily="casual"
+            android:text="@string/mark_the_problems_you_faced_in_the_last_4_weeks"
+            android:textColor="#000000" />
+
         <LinearLayout
             android:id="@+id/q4Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <CheckBox
                 android:id="@+id/q4_acne_pimples"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/acne_pimples" />
+                android:text="@string/acne_pimples"
+                android:textColor="#000000" />
+
             <CheckBox
                 android:id="@+id/q4_redness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/redness" />
+                android:text="@string/redness"
+                android:textColor="#000000" />
+
             <CheckBox
                 android:id="@+id/q4_irritation_shaving"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/irritation_due_to_shaving" />
+                android:text="@string/irritation_due_to_shaving"
+                android:textColor="#000000" />
+
             <CheckBox
                 android:id="@+id/q4_none"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/none_of_these" />
+                android:text="@string/none_of_these"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView166"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty"
+                tools:ignore="DuplicateIds" />
         </LinearLayout>
 
         <!-- Question 5 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/describe_your_facial_skin_after_using_facial_soap" />
+            android:fontFamily="casual"
+            android:text="@string/describe_your_facial_skin_after_using_facial_soap"
+            android:textColor="#000000" />
+
         <RadioGroup
             android:id="@+id/q5Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_facial_skin_feels_very_tight" />
+                android:text="@string/my_facial_skin_feels_very_tight"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_facial_skin_feels_clean_and_pleasant" />
+                android:text="@string/my_facial_skin_feels_clean_and_pleasant"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/i_feel_like_my_t_zone_is_dry" />
+                android:text="@string/i_feel_like_my_t_zone_is_dry"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty" />
+
         </RadioGroup>
 
         <!-- Question 6 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Are you dealing with uneven skin tone, pigmentation or dark spots?"
+            android:textColor="#000000"
             tools:ignore="HardcodedText" />
+
         <RadioGroup
             android:id="@+id/q6Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty" />
+
         </RadioGroup>
 
         <!-- Question 7 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/how_much_water_do_you_drink_during_the_day" />
+            android:fontFamily="casual"
+            android:text="@string/how_much_water_do_you_drink_during_the_day"
+            android:textColor="#000000" />
+
         <RadioGroup
             android:id="@+id/q7Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/does_not_drink_during_the_day" />
+                android:text="@string/does_not_drink_during_the_day"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_0_5_cups" />
+                android:text="@string/_0_5_cups"
+                android:textColor="#000000" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_5_cups_or_more" />
+                android:text="@string/_5_cups_or_more"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty" />
+
         </RadioGroup>
 
         <!-- Question 8 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="what is your gender?"
+            android:textColor="#000000"
             tools:ignore="HardcodedText" />
+
         <RadioGroup
             android:id="@+id/q8Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Male"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
+                android:textColor="#000000"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/empty" />
         </RadioGroup>
 
         <Button
             android:id="@+id/submitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="105dp"
+            android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#D0E7FF"
-            android:textColor="#000000"
-            android:text="@string/submit" />
+            android:text="@string/submit"
+            android:textColor="#000000" />
 
     </LinearLayout>
 </ScrollView>
