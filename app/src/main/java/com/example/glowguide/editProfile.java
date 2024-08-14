@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class editProfile extends AppCompatActivity {
 
-    EditText profileName, profileEmail, profilePhone;
+    EditText profileName, profilePhone;
     Button saveBtn;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -26,10 +26,6 @@ public class editProfile extends AppCompatActivity {
 
     private boolean isValidFullName(String name) {
         return !TextUtils.isEmpty(name) && name.matches("[a-zA-Z]+( [a-zA-Z]+)*");
-    }
-
-    private boolean isValidEmail(String email) {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     private boolean isValidPhoneNumber(String phoneNumber) {
@@ -44,7 +40,6 @@ public class editProfile extends AppCompatActivity {
 
         Intent data = getIntent();
         String fullName = data.getStringExtra("fName");
-        String email = data.getStringExtra("email");
         String phone = data.getStringExtra("phone");
 
         fAuth = FirebaseAuth.getInstance();
@@ -52,7 +47,6 @@ public class editProfile extends AppCompatActivity {
         user = fAuth.getCurrentUser();
 
         profileName = findViewById(R.id.editName);
-        profileEmail = findViewById(R.id.editEmail);
         profilePhone = findViewById(R.id.editPhone);
         saveBtn = findViewById(R.id.save);
 
@@ -63,11 +57,6 @@ public class editProfile extends AppCompatActivity {
             // Input validation
             if (!isValidFullName(profileName.getText().toString())) {
                 Toast.makeText(editProfile.this, "Full name should contain only letters", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (!isValidEmail(profileEmail.getText().toString())) {
-                Toast.makeText(editProfile.this, "Invalid email address", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -88,9 +77,7 @@ public class editProfile extends AppCompatActivity {
 
         });
         profileName.setText(fullName);
-        profileEmail.setText(email);
         profilePhone.setText(phone);
-
 
 
     }

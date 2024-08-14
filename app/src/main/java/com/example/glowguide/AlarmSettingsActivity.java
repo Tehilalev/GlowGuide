@@ -34,6 +34,12 @@ public class AlarmSettingsActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
+        calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 12); // Default hour
+        calendar.set(Calendar.MINUTE, 0); // Default minute
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
         binding.selectTimeBtn.setOnClickListener(v -> showTimePicker());
 
         binding.setAlarmBtn.setOnClickListener(v -> setAlarm());

@@ -22,12 +22,12 @@
     <string name="edit_email">Email</string>
     <string name="save">SAVE</string>
     <string name="hello_world">Hello World</string>
-    <string name="notification_time">08 : 45 PM</string>
+    <string name="notification_time">12 : 00 PM</string>
     <string name="select_time">Select Time</string>
     <string name="set_alarm">Set Alarm</string>
     <string name="cancel_alarm">Cancel Alarm</string>
     <string name="add_notification">Add Notification</string>
-    <string name="explore_nearby_places">Explore Nearby Places</string>
+    <string name="explore_nearby_places">Explore Clinics And Stores</string>
     <string name="a" />
     <string name="insert_text_here_to_show_the_button_s_action_and_functionality">Insert text here to show the button\'s action and functionality</string>
     <string name="personal_profile">Personal Profile</string>
@@ -35,7 +35,7 @@
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="update_password">Update Password</string>
-    <string name="skin_care">Skin Care</string>
+    <string name="facial_skin_care">Facial Skin Care</string>
     <string name="at_least_twice_a_day">At least twice a day</string>
     <string name="once_a_day">Once a day</string>
     <string name="rarely">Rarely</string>

@@ -89,13 +89,10 @@ public class Register extends AppCompatActivity {
         button_reg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
+        textView.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
         });
 
         button_reg.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +125,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if (!isValidPassword(_password)) {
-                    Toast.makeText(Register.this, "Password should contain at least 8 characters with one uppercase letter", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Password must be 8+ characters with an uppercase letter", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
