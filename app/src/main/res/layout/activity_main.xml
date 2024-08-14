@@ -70,7 +70,7 @@
                             android:layout_width="249dp"
                             android:layout_height="58dp"
                             android:layout_marginEnd="20dp"
-                            android:text="Insert text here to show the button's action and functionality"
+                            android:text="Fill out a questionnaire and find out what is your skin type."
                             android:textColor="#000000" />
 
                         <Button
@@ -131,7 +131,7 @@
                             android:layout_width="249dp"
                             android:layout_height="58dp"
                             android:layout_marginEnd="20dp"
-                            android:text="Insert text here to show the button's action and functionality"
+                            android:text="Set an alarm at the most convenient time for you, to get a reminder to do your daily skincare routine!"
                             android:textColor="#000000" />
 
                         <Button
@@ -188,7 +188,7 @@
                             android:layout_width="249dp"
                             android:layout_height="58dp"
                             android:layout_marginEnd="20dp"
-                            android:text="@string/insert_text_here_to_show_the_button_s_action_and_functionality"
+                            android:text="Find clinics and cosmetic stores nearby."
                             android:textColor="#000000" />
 
                         <Button
@@ -246,7 +246,7 @@
                             android:layout_width="249dp"
                             android:layout_height="58dp"
                             android:layout_marginEnd="20dp"
-                            android:text="Insert text here to show the button's action and functionality"
+                            android:text="View and edit your personal details."
                             android:textColor="#000000" />
 
                         <Button
